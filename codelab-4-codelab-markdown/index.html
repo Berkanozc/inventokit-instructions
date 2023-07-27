@@ -1,0 +1,81 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>CodeLab to Create a CodeLab</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="codelab-4-codelab-markdown"
+                  title="CodeLab to Create a CodeLab"
+                  environment="web"
+                  feedback-link="https://github.com/Mrc0113/codelab-4-codelab">
+    
+      <google-codelab-step label="CodeLab Overview" duration="5">
+        <ol type="1">
+<li>Using a Google Doc<br></li>
+<li>Using a markdown file<br><br>In this codelab we are going to use the second option and author our codelab using a markdown file. This gives us the flexibility of using our markdown file for other things and also storing it in our github repo with any code that might be used for a tutorial. <br><br>Here is an example image of another CodeLab that I created:<br><br><br><strong>Resources:</strong></li>
+</ol>
+<ul>
+<li>This codelab&#39;s original home is located here: <a href="https://www.marcd.dev/codelab-4-codelab" target="_blank">Link to Codelab</a></li>
+<li>The markdown for the original codelab is located here: <a href="https://github.com/Mrc0113/codelab-4-codelab/blob/master/codelab.md" target="_blank">codelab.md</a></li>
+<li><a href="https://github.com/googlecodelabs/tools" target="_blank">Google CodeLabs Tools Github</a> - The repo that contains the claat tool we&#39;ll be using today<br></li>
+<li><a href="https://groups.google.com/forum/#!forum/codelab-authors" target="_blank">Google Group for CodeLab Authors</a> - great forum for asking questions about codelabs and discussing future functionality<br></li>
+<li><a href="https://medium.com/@mariopce/tutorial-how-to-make-tutorials-using-google-code-labs-gangdam-style-d62b35476816" target="_blank">A blog that I used when getting started with Google Codelabs</a>Environment Setup<br><em>Go</em> and <em>claat</em> (the codelabs command line tool) installed.<br><br>The instructions below are what worked for me on Mac, but you can also find instructions <a href="https://github.com/googlecodelabs/tools/tree/master/claat" target="_blank">here</a><h3 is-upgraded>Install Go <br></h3>
+<br>Install <a href="https://golang.org/dl/" target="_blank">Go</a> if you don&#39;t have it.<br>You can use Homebrew if you have it on mac <br><code>bash<br>$ brew install go<br></code><h3 is-upgraded>Setup Go Environment Variables<br></h3>
+Below is what I set on mac, but instructions are <a href="https://golang.org/doc/install" target="_blank">here</a> for other OS options<br><br><code>bash<br>$ export GOPATH=$HOME/Go<br>$ export GOROOT=/usr/local/opt/go/libexec<br>$ export PATH=$PATH:$GOPATH/bin<br>$ export PATH=$PATH:$GOROOT/bin<br></code><h3 is-upgraded>Install claat<br></h3>
+Install claat<br><code>bash<br>$ go get -u -v -x github.com/googlecodelabs/tools/claat</code><br><br><br>You should now have the <em>claat</em> command available to you. <br><code>bash<br>$ claat<br></code>Create your initial CodeLab<br></li>
+</ul>
+<p>If you&#39;re using Windows make sure to set your text editor to use UNIX line endings! <br><br></p>
+<p><code>bash<br>$ vim codelab.md<br></code></p>
+<h3 is-upgraded>Fill-in the header metadata<br></h3>
+<p>Copy and paste the headers below into your markdown file and change the values appropriately. <br>Guidelines are available below the sample headers. <br><br><code>bash<br>author: Author Name<br>summary: Summary of your codelab that is human readable<br>id: unique-codelab-identifier<br>categories: codelab,markdown<br>environments: Web<br>status: Published<br>feedback link: A link where users can go to provide feedback (Maybe the git repo)<br>analytics account: Google Analytics ID</code><br><br><br>Metadata consists of key-value pairs of the form &#34;key: value&#34;. Keys cannot<br>contain colons, and separate metadata fields must be separated by blank lines.<br>At present, values must all be on one line. All metadata must come before the<br>title. Any arbitrary keys and values may be used; however, only the following<br>will be understood by the renderer:<br><br></p>
+<ul>
+<li>Summary: A human-readable summary of the codelab. Defaults to blank.<br></li>
+<li>Id: An identifier composed of lowercase letters ideally describing the<br>content of the codelab. This field should be unique among<br>codelabs.<br></li>
+<li>Categories: A comma-separated list of the topics the codelab covers.<br></li>
+<li>Environments: A list of environments the codelab should be discoverable in.<br>Codelabs marked &#34;Web&#34; will be visible at the codelabs index. Codelabs marked<br>&#34;Kiosk&#34; will only be available at codelabs kiosks, which have special<br>equipment attached.<br></li>
+<li>Status: The publication status of the codelab. Valid values are:<br><ul>
+<li>Draft: Codelab is not finished.<br></li>
+<li>Published: Codelab is finished and visible.<br></li>
+<li>Deprecated: Codelab is considered stale and should not be widely advertised.<br></li>
+<li>Hidden: Codelab is not shown in index.<br></li>
+</ul>
+</li>
+<li>Feedback Link: A link to send users to if they wish to leave feedback on the<br>codelab.<br></li>
+<li>Analytics Account: A Google Analytics ID to include with all codelab pages.<br><br><h3 is-upgraded>Add the Title<br></h3>
+Next add your title using a single ‘#&#39; character<br>&#34;`<br>Title of codelab<br>&#34;`<br><br><h3 is-upgraded>Add Sections and Durations<br></h3>
+Then for each section use Header 2 or ‘##&#39; and specify an optional duration beneath for time remaining calculations<br>Optional section times will be used to automatically total and remaining tutorial times<br>In markdown I&#39;ve found that the time is formatted hh:mm:ss<br><br>Example<br>&#34;` bash<br>Section 1<br>Section 2<br><h3 is-upgraded>Add Section Content<br></h3>
+Now that we have 2 sections to our titled codelab let&#39;s go ahead and add some content to each section. <br>Make up your own or copy and paste the example below: <br><br>Copy into section 1 (Below Duration and above Section 2):<br>&#34;`<br><h2 is-upgraded>Info Boxes<br></h2>
+Plain Text followed by green and yellow info boxes <br><br>Negative<br></li>
+</ul>
+<p>This will appear in a yellow info box.<br><br>Positive<br>This will appear in a green info box.<br><br>You created info boxes!</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>
